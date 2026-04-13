@@ -4,32 +4,38 @@ import './globals.css';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
+  weight: ['400', '700', '900'],
+  style: ['normal', 'italic'],
   variable: '--font-playfair',
   display: 'swap',
 });
 
 const inter = Inter({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-inter',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Dubai Mall — The World\'s Premier Retail Destination',
+  title: 'Dubai Mall — Where the World Shops',
   description:
-    'Explore unmatched leasing, sponsorship, and event opportunities at Dubai Mall — home to 1,200+ stores and 105 million annual visitors.',
-  keywords: 'Dubai Mall, retail leasing, brand sponsorship, events, Fashion Avenue, luxury retail',
+    'The world\'s most visited shopping and entertainment destination. 1,200+ brands, 105M+ annual visitors, 5.4M sq ft of iconic retail experience.',
+  keywords: 'Dubai Mall, retail leasing, brand sponsorship, events, Fashion Avenue, luxury retail, Downtown Dubai',
   openGraph: {
-    title: 'Dubai Mall — Partner With The World\'s Best',
-    description: '1,200+ stores. 105M visitors. One iconic address.',
+    title: 'Dubai Mall — Where the World Shops',
+    description: '1,200+ brands. 105M+ visitors. One iconic address.',
     type: 'website',
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${playfair.variable} ${inter.variable} bg-[#0A0A0A] text-white antialiased`}>
+    <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body className={`${playfair.variable} ${inter.variable} bg-dark text-white antialiased`}>
         {children}
       </body>
     </html>

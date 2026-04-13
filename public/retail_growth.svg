@@ -1,0 +1,70 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="140" y1="40" x2="1060" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#090A0C"/>
+      <stop offset="0.5" stop-color="#111519"/>
+      <stop offset="1" stop-color="#050506"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="260" y1="160" x2="940" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0D897"/>
+      <stop offset="1" stop-color="#A8751D"/>
+    </linearGradient>
+    <linearGradient id="rise" x1="420" y1="580" x2="780" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A8741D"/>
+      <stop offset="1" stop-color="#F0D897"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(640 510) rotate(90) scale(340 470)">
+      <stop stop-color="#C9A84C" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#C9A84C" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="0" y="0" width="1200" height="800" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="630" cy="510" r="290" fill="url(#glow)" filter="url(#blur)"/>
+  <g opacity="0.15">
+    <path d="M110 640C260 580 390 560 520 570C646 580 744 632 860 646C980 660 1040 638 1118 608V800H110V640Z" fill="#E0C06A"/>
+  </g>
+  <g transform="translate(170 114)">
+    <rect x="0" y="20" width="180" height="498" rx="26" fill="#12151A" stroke="url(#gold)" stroke-opacity="0.32"/>
+    <rect x="36" y="120" width="48" height="320" rx="12" fill="#1D2229"/>
+    <rect x="96" y="74" width="46" height="366" rx="12" fill="#1A1F26"/>
+    <rect x="356" y="0" width="180" height="518" rx="26" fill="#0F1216" stroke="url(#gold)" stroke-opacity="0.45"/>
+    <rect x="392" y="142" width="48" height="298" rx="12" fill="#1C2127"/>
+    <rect x="452" y="104" width="48" height="336" rx="12" fill="#20262D"/>
+    <rect x="712" y="48" width="180" height="470" rx="26" fill="#111419" stroke="url(#gold)" stroke-opacity="0.28"/>
+    <rect x="748" y="164" width="48" height="270" rx="12" fill="#1A1E24"/>
+    <rect x="808" y="82" width="48" height="352" rx="12" fill="#1D2228"/>
+    <path d="M88 452H450" stroke="#F1D38B" stroke-opacity="0.22" stroke-width="2"/>
+    <path d="M408 414H818" stroke="#F1D38B" stroke-opacity="0.22" stroke-width="2"/>
+    <path d="M0 538H892" stroke="#C9A84C" stroke-opacity="0.48" stroke-width="4" stroke-linecap="round"/>
+    <path d="M884 538L744 392" stroke="url(#rise)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M744 392L786 400L776 360" stroke="url(#rise)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="840" cy="122" r="56" fill="url(#gold)" fill-opacity="0.22"/>
+    <circle cx="840" cy="122" r="18" fill="#F4DC9A" fill-opacity="0.85"/>
+    <g fill="url(#gold)">
+      <rect x="120" y="300" width="28" height="98" rx="8"/>
+      <rect x="182" y="250" width="28" height="148" rx="8"/>
+      <rect x="244" y="220" width="28" height="178" rx="8"/>
+      <rect x="306" y="170" width="28" height="228" rx="8"/>
+      <rect x="368" y="142" width="28" height="256" rx="8"/>
+      <rect x="430" y="104" width="28" height="294" rx="8"/>
+    </g>
+    <g opacity="0.8">
+      <circle cx="128" cy="286" r="6" fill="#E7C97A"/>
+      <circle cx="190" cy="236" r="6" fill="#E7C97A"/>
+      <circle cx="252" cy="206" r="6" fill="#E7C97A"/>
+      <circle cx="314" cy="156" r="6" fill="#E7C97A"/>
+      <circle cx="376" cy="128" r="6" fill="#E7C97A"/>
+      <circle cx="438" cy="90" r="6" fill="#E7C97A"/>
+    </g>
+  </g>
+  <g opacity="0.9">
+    <circle cx="188" cy="172" r="3" fill="#E8C97A"/>
+    <circle cx="1020" cy="166" r="3" fill="#E8C97A"/>
+    <circle cx="1050" cy="220" r="4" fill="#E8C97A"/>
+    <circle cx="246" cy="646" r="4" fill="#E8C97A"/>
+    <circle cx="938" cy="620" r="4" fill="#E8C97A"/>
+  </g>
+</svg>

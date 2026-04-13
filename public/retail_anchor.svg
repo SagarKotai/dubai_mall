@@ -1,0 +1,63 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="60" x2="1120" y2="740" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07080A"/>
+      <stop offset="0.55" stop-color="#101317"/>
+      <stop offset="1" stop-color="#040405"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="260" y1="150" x2="940" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3D997"/>
+      <stop offset="1" stop-color="#A8741D"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 430) rotate(90) scale(320 450)">
+      <stop stop-color="#C9A84C" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#C9A84C" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="0" y="0" width="1200" height="800" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <ellipse cx="600" cy="420" rx="310" ry="245" fill="url(#centerGlow)" filter="url(#blur)"/>
+  <path d="M110 650C220 620 326 608 450 616C587 625 689 660 826 666C955 672 1052 648 1110 618V800H110V650Z" fill="#111317"/>
+  <g transform="translate(260 120)">
+    <rect x="0" y="0" width="680" height="510" rx="40" fill="#0E1013" stroke="url(#gold)" stroke-opacity="0.45" stroke-width="2"/>
+    <rect x="42" y="42" width="596" height="430" rx="28" fill="#11151A" stroke="#E9D08B" stroke-opacity="0.18"/>
+    <rect x="255" y="86" width="170" height="296" rx="18" fill="#15191F" stroke="url(#gold)" stroke-opacity="0.55"/>
+    <rect x="285" y="116" width="110" height="232" rx="12" fill="#1F242B"/>
+    <rect x="322" y="144" width="36" height="206" rx="18" fill="url(#gold)"/>
+    <rect x="110" y="130" width="108" height="240" rx="14" fill="#121519" stroke="#D8BB6C" stroke-opacity="0.2"/>
+    <rect x="462" y="130" width="108" height="240" rx="14" fill="#121519" stroke="#D8BB6C" stroke-opacity="0.2"/>
+    <g fill="url(#gold)">
+      <rect x="126" y="150" width="76" height="22" rx="11"/>
+      <rect x="126" y="188" width="76" height="22" rx="11"/>
+      <rect x="126" y="226" width="76" height="22" rx="11"/>
+      <rect x="126" y="264" width="76" height="22" rx="11"/>
+      <rect x="126" y="302" width="76" height="22" rx="11"/>
+      <rect x="498" y="150" width="76" height="22" rx="11"/>
+      <rect x="498" y="188" width="76" height="22" rx="11"/>
+      <rect x="498" y="226" width="76" height="22" rx="11"/>
+      <rect x="498" y="264" width="76" height="22" rx="11"/>
+      <rect x="498" y="302" width="76" height="22" rx="11"/>
+    </g>
+    <path d="M86 422C170 388 226 378 338 382C450 386 516 410 594 426" stroke="#F4DC9A" stroke-opacity="0.6" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="341" cy="84" r="36" fill="url(#gold)" fill-opacity="0.28"/>
+    <circle cx="341" cy="84" r="14" fill="#F4DC9A" fill-opacity="0.8"/>
+    <text x="340" y="461" text-anchor="middle" fill="#EAD9AA" font-size="28" font-family="Georgia, 'Times New Roman', serif" letter-spacing="3">ANCHOR TENANT</text>
+  </g>
+  <g opacity="0.9">
+    <circle cx="180" cy="174" r="3" fill="#E8C97A"/>
+    <circle cx="986" cy="172" r="3" fill="#E8C97A"/>
+    <circle cx="1026" cy="226" r="4" fill="#E8C97A"/>
+    <circle cx="200" cy="608" r="4" fill="#E8C97A"/>
+    <circle cx="918" cy="604" r="4" fill="#E8C97A"/>
+  </g>
+  <g opacity="0.18">
+    <path d="M126 594H286" stroke="#E8C97A" stroke-width="2"/>
+    <path d="M914 594H1070" stroke="#E8C97A" stroke-width="2"/>
+    <path d="M220 92L260 52" stroke="#E8C97A" stroke-width="2"/>
+    <path d="M220 52L260 92" stroke="#E8C97A" stroke-width="2"/>
+    <path d="M944 92L984 52" stroke="#E8C97A" stroke-width="2"/>
+    <path d="M944 52L984 92" stroke="#E8C97A" stroke-width="2"/>
+  </g>
+</svg>
