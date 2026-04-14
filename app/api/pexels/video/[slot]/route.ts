@@ -28,6 +28,15 @@ const SLOT_TO_VIDEO_ID: Record<VideoSlot, number> = {
 const CACHE_TTL_MS = 12 * 60 * 60 * 1000;
 const resolvedUrlCache = new Map<VideoSlot, { url: string; expiresAt: number }>();
 
+const PROXY_HEADER_ALLOWLIST = [
+  'content-type',
+  'content-length',
+  'content-range',
+  'accept-ranges',
+  'etag',
+  'last-modified',
+] as const;
+
 function isVideoSlot(value: string): value is VideoSlot {
   return Object.prototype.hasOwnProperty.call(VIDEO_FALLBACKS, value);
 }
@@ -98,6 +107,51 @@ async function resolveVideoUrl(slot: VideoSlot): Promise<string> {
   return resolved;
 }
 
+function isPlayableStatus(status: number): boolean {
+  return status >= 200 && status < 300;
+}
+
+async function fetchAndProxy(
+  request: Request,
+  targetUrl: string,
+  method: 'GET' | 'HEAD'
+): Promise<Response | null> {
+  const upstreamHeaders = new Headers();
+  const range = request.headers.get('range');
+  if (range) upstreamHeaders.set('Range', range);
+
+  let upstream: Response;
+  try {
+    upstream = await fetch(targetUrl, {
+      method,
+      headers: upstreamHeaders,
+      cache: 'no-store',
+    });
+  } catch {
+    return null;
+  }
+
+  if (!isPlayableStatus(upstream.status)) {
+    return null;
+  }
+
+  const responseHeaders = new Headers();
+  for (const headerName of PROXY_HEADER_ALLOWLIST) {
+    const value = upstream.headers.get(headerName);
+    if (value) responseHeaders.set(headerName, value);
+  }
+
+  responseHeaders.set(
+    'Cache-Control',
+    'public, s-maxage=43200, stale-while-revalidate=86400'
+  );
+
+  return new Response(method === 'HEAD' ? null : upstream.body, {
+    status: upstream.status,
+    headers: responseHeaders,
+  });
+}
+
 export async function GET(_request: Request, context: RouteContext) {
   const { slot } = await context.params;
 
@@ -112,11 +166,46 @@ export async function GET(_request: Request, context: RouteContext) {
   }
 
   const target = await resolveVideoUrl(slot);
+  const candidates = target === VIDEO_FALLBACKS[slot]
+    ? [target]
+    : [target, VIDEO_FALLBACKS[slot]];
 
-  return NextResponse.redirect(target, {
-    status: 307,
-    headers: {
-      'Cache-Control': 'public, s-maxage=43200, stale-while-revalidate=86400',
-    },
-  });
+  for (const candidate of candidates) {
+    const proxied = await fetchAndProxy(_request, candidate, 'GET');
+    if (proxied) return proxied;
+  }
+
+  return NextResponse.json(
+    { error: 'Unable to stream requested video source.' },
+    { status: 502 }
+  );
+}
+
+export async function HEAD(request: Request, context: RouteContext) {
+  const { slot } = await context.params;
+
+  if (!isVideoSlot(slot)) {
+    return NextResponse.json(
+      {
+        error: 'Unknown video slot.',
+        allowed: Object.keys(VIDEO_FALLBACKS),
+      },
+      { status: 404 }
+    );
+  }
+
+  const target = await resolveVideoUrl(slot);
+  const candidates = target === VIDEO_FALLBACKS[slot]
+    ? [target]
+    : [target, VIDEO_FALLBACKS[slot]];
+
+  for (const candidate of candidates) {
+    const proxied = await fetchAndProxy(request, candidate, 'HEAD');
+    if (proxied) return proxied;
+  }
+
+  return NextResponse.json(
+    { error: 'Unable to inspect requested video source.' },
+    { status: 502 }
+  );
 }
