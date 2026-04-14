@@ -66,7 +66,7 @@ const tiers = [
 export default function Slide09Partnership({ isActive }: SlideProps) {
   return (
     <div
-      className="relative w-full h-full flex flex-col items-center justify-center px-8 py-20 overflow-hidden"
+      className="relative w-full h-full flex flex-col items-center justify-start md:justify-center px-4 sm:px-6 md:px-8 pt-24 pb-28 md:py-20 overflow-y-auto overflow-x-hidden"
       style={{ background: '#0A0A0A' }}
     >
       {/* Ambient video */}
@@ -94,20 +94,20 @@ export default function Slide09Partnership({ isActive }: SlideProps) {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
+              className="text-center mb-8 md:mb-12"
             >
               <p className="label-caps text-gold mb-4">Partnership Program</p>
               <h2 className="heading-lg text-white">Partner With The Best</h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-2 md:pb-0 -mx-1 px-1 md:mx-0 md:px-0">
               {tiers.map((tier, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.55, delay: 0.15 + i * 0.12 }}
-                  className={`relative rounded-2xl p-7 flex flex-col transition-all duration-300 cursor-pointer
+                  className={`relative rounded-2xl p-5 sm:p-7 flex flex-col transition-all duration-300 cursor-pointer snap-center shrink-0 w-[80vw] sm:w-[340px] md:w-auto
                     ${tier.featured
                       ? 'ring-1 ring-gold/50 shadow-[0_0_40px_rgba(201,168,76,0.12)]'
                       : ''

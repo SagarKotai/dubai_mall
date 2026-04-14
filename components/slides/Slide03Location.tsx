@@ -15,7 +15,7 @@ const points = [
 export default function Slide03Location({ isActive }: SlideProps) {
   return (
     <div
-      className="relative w-full h-full flex items-center overflow-hidden city-grid-pattern"
+      className="relative w-full h-full flex items-start md:items-center overflow-y-auto overflow-x-hidden pt-24 pb-28 md:pt-0 md:pb-0 city-grid-pattern"
       style={{ background: '#080808' }}
     >
       {/* Ambient background video — Dubai aerial skyline */}
@@ -37,7 +37,7 @@ export default function Slide03Location({ isActive }: SlideProps) {
         background: 'radial-gradient(ellipse 50% 60% at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 65%)',
       }} />
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-4 md:py-0 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
         {/* Left: Text */}
         <div>
           {isActive && (
@@ -96,10 +96,10 @@ export default function Slide03Location({ isActive }: SlideProps) {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col items-center gap-8"
+            className="flex flex-col items-center gap-6 md:gap-8"
           >
             {/* Stylized map circle */}
-            <div className="relative flex items-center justify-center" style={{ width: 340, height: 340 }}>
+            <div className="relative flex items-center justify-center scale-[0.78] sm:scale-[0.9] md:scale-100" style={{ width: 340, height: 340 }}>
               {/* Outer ring — uses CSS class not inline animation string */}
               <div
                 className="absolute rounded-full"
@@ -167,10 +167,10 @@ export default function Slide03Location({ isActive }: SlideProps) {
             </div>
 
             {/* Big stat */}
-            <div className="glass-gold rounded-2xl px-8 py-5 text-center">
+            <div className="glass-gold rounded-2xl px-5 sm:px-8 py-4 sm:py-5 text-center">
               <div
                 className="text-gold font-black mb-1"
-                style={{ fontFamily: 'var(--font-playfair)', fontSize: '2.8rem', lineHeight: 1 }}
+                style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.9rem, 9vw, 2.8rem)', lineHeight: 1 }}
               >
                 3.3 BILLION
               </div>

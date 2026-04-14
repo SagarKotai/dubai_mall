@@ -46,7 +46,7 @@ const columns = [
 export default function Slide08Events({ isActive }: SlideProps) {
   return (
     <div
-      className="relative w-full h-full flex flex-col items-center justify-center px-8 py-20 overflow-hidden spotlight"
+      className="relative w-full h-full flex flex-col items-center justify-start md:justify-center px-4 sm:px-6 md:px-8 pt-24 pb-28 md:py-20 overflow-y-auto overflow-x-hidden spotlight"
       style={{ background: '#060606' }}
     >
       {/* Background video */}
@@ -77,7 +77,7 @@ export default function Slide08Events({ isActive }: SlideProps) {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-5"
+              className="text-center mb-4 sm:mb-5"
             >
               <p className="label-caps text-gold mb-4">Events Platform</p>
               <h2 className="heading-lg text-white">The World&apos;s Stage</h2>
@@ -88,7 +88,7 @@ export default function Slide08Events({ isActive }: SlideProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center mb-12"
+              className="text-center mb-8 sm:mb-12"
             >
               <span
                 className="font-black text-gold"
@@ -105,14 +105,14 @@ export default function Slide08Events({ isActive }: SlideProps) {
             </motion.div>
 
             {/* 3 columns */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-5 mb-8 md:mb-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-2 md:pb-0 -mx-1 px-1 md:mx-0 md:px-0">
               {columns.map((col, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.35 + i * 0.12 }}
-                  className="glass rounded-2xl p-7 text-center glass-hover"
+                  className="glass rounded-2xl p-5 sm:p-7 text-center glass-hover snap-center shrink-0 w-[78vw] sm:w-[330px] md:w-auto"
                 >
                   <div
                     className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 text-gold"

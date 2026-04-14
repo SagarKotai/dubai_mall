@@ -14,7 +14,7 @@ const actions = [
 export default function Slide10Contact({ isActive }: SlideProps) {
   return (
     <div
-      className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-full h-full flex flex-col items-center justify-start md:justify-center overflow-y-auto overflow-x-hidden pt-24 pb-28 md:pt-0 md:pb-0"
       id="partner"
       style={{ background: 'radial-gradient(ellipse 80% 80% at 50% 50%, #1a1208 0%, #0A0A0A 100%)' }}
     >
@@ -35,7 +35,7 @@ export default function Slide10Contact({ isActive }: SlideProps) {
         background: 'radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%)',
       }} />
 
-      <div className="relative z-10 w-full max-w-3xl mx-auto px-8 text-center">
+      <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-8 text-center">
         {isActive && (
           <>
             {/* Logo/brand */}
@@ -115,7 +115,7 @@ export default function Slide10Contact({ isActive }: SlideProps) {
               {actions.map((a, i) => (
                 <button
                   key={i}
-                  className={a.style === 'gold' ? 'btn-gold px-7 py-3' : 'btn-outline px-7 py-3'}
+                  className={a.style === 'gold' ? 'btn-gold px-7 py-3 w-full sm:w-auto' : 'btn-outline px-7 py-3 w-full sm:w-auto'}
                 >
                   <span className="mr-2">{a.icon}</span>
                   {a.label}
@@ -132,7 +132,7 @@ export default function Slide10Contact({ isActive }: SlideProps) {
             >
               <a
                 href="mailto:partnerships@dubaimall.com"
-                className="flex items-center gap-2 text-white/50 hover:text-gold transition-colors"
+                className="flex items-center gap-2 text-white/50 hover:text-gold transition-colors break-all"
                 style={{ fontFamily: 'var(--font-inter)', fontSize: '0.8rem', letterSpacing: '0.05em' }}
               >
                 <span>✉</span>

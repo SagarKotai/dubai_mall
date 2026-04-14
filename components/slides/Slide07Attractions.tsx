@@ -68,7 +68,7 @@ const attractions = [
 export default function Slide07Attractions({ isActive }: SlideProps) {
   return (
     <div
-      className="relative w-full h-full flex flex-col items-center justify-center px-8 py-20 overflow-hidden"
+      className="relative w-full h-full flex flex-col items-center justify-start md:justify-center px-4 sm:px-6 md:px-8 pt-24 pb-28 md:py-20 overflow-y-auto overflow-x-hidden"
       style={{ background: '#08080C' }}
     >
       {/* Background video — attractions footage */}
@@ -98,7 +98,7 @@ export default function Slide07Attractions({ isActive }: SlideProps) {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
             <p className="label-caps text-gold mb-4">Entertainment & Attractions</p>
             <h2 className="heading-lg text-white">
@@ -107,7 +107,7 @@ export default function Slide07Attractions({ isActive }: SlideProps) {
           </motion.div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
           {attractions.map((a, i) =>
             isActive ? (
               <motion.div
@@ -115,7 +115,7 @@ export default function Slide07Attractions({ isActive }: SlideProps) {
                 initial={{ opacity: 0, y: 30, scale: 0.97 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className="glass rounded-2xl p-6 flex gap-5 glass-hover"
+                className="glass rounded-2xl p-5 sm:p-6 flex gap-4 sm:gap-5 glass-hover"
               >
                 {/* SVG Icon */}
                 <div
@@ -128,7 +128,7 @@ export default function Slide07Attractions({ isActive }: SlideProps) {
                   {a.icon}
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-start justify-between gap-3 mb-2">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-3 mb-2">
                     <h3
                       className="text-white font-semibold leading-tight"
                       style={{ fontFamily: 'var(--font-inter)', fontSize: '0.95rem' }}
@@ -136,8 +136,8 @@ export default function Slide07Attractions({ isActive }: SlideProps) {
                       {a.name}
                     </h3>
                     <span
-                      className="shrink-0 px-2 py-0.5 rounded text-xs text-gold/80 border border-gold/20"
-                      style={{ fontFamily: 'var(--font-inter)', fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
+                      className="shrink-0 px-2 py-0.5 rounded text-xs text-gold/80 border border-gold/20 sm:whitespace-nowrap"
+                      style={{ fontFamily: 'var(--font-inter)', fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
                     >
                       {a.tag}
                     </span>

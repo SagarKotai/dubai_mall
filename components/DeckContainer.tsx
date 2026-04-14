@@ -97,6 +97,13 @@ export default function DeckContainer() {
       if (touchStartY.current === null || touchStartX.current === null) return;
       const dy = touchStartY.current - e.changedTouches[0].clientY;
       const dx = touchStartX.current - e.changedTouches[0].clientX;
+
+      if (window.innerWidth < 768) {
+        touchStartY.current = null;
+        touchStartX.current = null;
+        return;
+      }
+
       const THRESHOLD = 50;
       // Prefer vertical swipe, fallback horizontal
       if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > THRESHOLD) {

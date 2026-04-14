@@ -12,7 +12,7 @@ interface NavigationProps {
 export default function Navigation({ slideTitle, current, onGoToContact }: NavigationProps) {
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4"
       style={{
         background: 'rgba(10,10,10,0.5)',
         backdropFilter: 'blur(20px)',
@@ -27,8 +27,8 @@ export default function Navigation({ slideTitle, current, onGoToContact }: Navig
             className="font-bold text-white tracking-widest"
             style={{
               fontFamily: 'var(--font-playfair)',
-              fontSize: '1.05rem',
-              letterSpacing: '0.18em',
+              fontSize: 'clamp(0.82rem, 3.2vw, 1.05rem)',
+              letterSpacing: '0.14em',
             }}
           >
             DUBAI MALL
@@ -75,8 +75,9 @@ export default function Navigation({ slideTitle, current, onGoToContact }: Navig
       </div>
 
       {/* Right: CTA — properly jumps to contact slide */}
-      <button onClick={onGoToContact} className="btn-gold text-xs">
-        Partner With Us
+      <button onClick={onGoToContact} className="btn-gold text-[10px] sm:text-xs px-3 sm:px-5 py-2 sm:py-2.5">
+        <span className="hidden sm:inline">Partner With Us</span>
+        <span className="sm:hidden">Partner</span>
       </button>
     </header>
   );

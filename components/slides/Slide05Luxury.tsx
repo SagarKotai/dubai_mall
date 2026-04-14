@@ -10,7 +10,7 @@ const categories = ['Haute Couture', 'Fine Jewellery', 'Swiss Timepieces', 'Desi
 export default function Slide05Luxury({ isActive }: SlideProps) {
   return (
     <div
-      className="relative w-full h-full flex flex-col items-center justify-center px-8 overflow-hidden"
+      className="relative w-full h-full flex flex-col items-center justify-start md:justify-center px-4 sm:px-6 md:px-8 pt-24 pb-28 md:pt-0 md:pb-0 overflow-y-auto overflow-x-hidden"
       style={{ background: '#070707' }}
     >
       {/* Very subtle ambient video — texture only */}
@@ -108,7 +108,7 @@ export default function Slide05Luxury({ isActive }: SlideProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55 }}
-              className="flex flex-wrap justify-center gap-3 mb-14"
+              className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14"
             >
               {categories.map((cat, i) => (
                 <span
@@ -126,7 +126,7 @@ export default function Slide05Luxury({ isActive }: SlideProps) {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.7 }}
-              className="glass-gold rounded-2xl px-10 py-8 max-w-2xl mx-auto relative overflow-hidden"
+              className="glass-gold rounded-2xl px-5 sm:px-10 py-6 sm:py-8 max-w-2xl mx-auto relative overflow-hidden"
             >
               {/* Large quote mark */}
               <div

@@ -32,7 +32,7 @@ export default function BottomNav({ current, total, onPrev, onNext, slideTitle }
 
       {/* Control row */}
       <div
-        className="flex items-center justify-center gap-6 py-5"
+        className="flex items-center justify-center gap-3 sm:gap-6 py-3 sm:py-5 px-3"
         style={{
           background: 'linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 100%)',
         }}
@@ -42,7 +42,7 @@ export default function BottomNav({ current, total, onPrev, onNext, slideTitle }
           onClick={onPrev}
           disabled={current === 0}
           aria-label="Previous slide"
-          className="group flex items-center justify-center w-10 h-10 rounded-full border border-white/20 text-white/60 hover:text-gold hover:border-gold/50 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300"
+          className="group flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/20 text-white/60 hover:text-gold hover:border-gold/50 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -50,19 +50,19 @@ export default function BottomNav({ current, total, onPrev, onNext, slideTitle }
         </button>
 
         {/* Counter + Title */}
-        <div className="flex items-center gap-3" style={{ fontFamily: 'var(--font-inter)' }}>
+        <div className="flex items-center gap-2 sm:gap-3" style={{ fontFamily: 'var(--font-inter)' }}>
           <motion.span
             key={current}
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="font-bold tracking-widest text-sm"
+            className="font-bold tracking-widest text-xs sm:text-sm"
             style={{ color: '#C9A84C' }}
           >
             {slideNum}
           </motion.span>
-          <span className="text-white/20 text-xs">/</span>
-          <span className="text-white/40 text-sm font-light">{totalNum}</span>
+          <span className="text-white/20 text-[10px] sm:text-xs">/</span>
+          <span className="text-white/40 text-xs sm:text-sm font-light">{totalNum}</span>
           <span className="w-px h-4 bg-white/15 mx-1" />
           <motion.span
             key={`title-${current}`}
@@ -81,7 +81,7 @@ export default function BottomNav({ current, total, onPrev, onNext, slideTitle }
           onClick={onNext}
           disabled={current === total - 1}
           aria-label="Next slide"
-          className="group flex items-center justify-center w-10 h-10 rounded-full border border-white/20 text-white/60 hover:text-gold hover:border-gold/50 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300"
+          className="group flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/20 text-white/60 hover:text-gold hover:border-gold/50 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

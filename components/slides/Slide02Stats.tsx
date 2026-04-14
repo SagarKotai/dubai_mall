@@ -55,7 +55,7 @@ const features = [
 export default function Slide02Stats({ isActive }: SlideProps) {
   return (
     <div
-      className="relative w-full h-full flex flex-col items-center justify-center px-6 overflow-hidden"
+      className="relative w-full h-full flex flex-col items-center justify-start md:justify-center px-4 sm:px-6 overflow-y-auto overflow-x-hidden pt-24 pb-28 md:pt-0 md:pb-0"
       style={{ background: '#0A0A0A' }}
     >
       {/* Ambient background video */}
@@ -92,7 +92,7 @@ export default function Slide02Stats({ isActive }: SlideProps) {
         )}
 
         {/* Stats grid — compact on small screens */}
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-6">
           {stats.map((s, i) => (
             isActive ? (
               <motion.div

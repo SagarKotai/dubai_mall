@@ -19,7 +19,7 @@ const stats = [
 export default function Slide01Hero({ isActive, onNext }: SlideProps) {
   return (
     <div
-      className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-full h-full flex flex-col items-center justify-start md:justify-center overflow-y-auto overflow-x-hidden pt-24 pb-28 md:pt-0 md:pb-0"
       style={{
         background: 'radial-gradient(ellipse 80% 80% at 50% 50%, #1a1208 0%, #0A0A0A 100%)',
       }}
@@ -42,7 +42,7 @@ export default function Slide01Hero({ isActive, onNext }: SlideProps) {
       }} />
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-5xl mx-auto">
         {/* Label */}
         {isActive && (
           <motion.p
@@ -99,7 +99,7 @@ export default function Slide01Hero({ isActive, onNext }: SlideProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.65 }}
-            className="flex flex-col sm:flex-row items-center gap-4 mb-14"
+            className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-10 sm:mb-14"
           >
             <button className="btn-gold px-8 py-3">Become a Partner</button>
             <button
@@ -117,7 +117,7 @@ export default function Slide01Hero({ isActive, onNext }: SlideProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-wrap items-center justify-center gap-3"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
           >
             {stats.map((s, i) => (
               <div key={i} className="stat-pill">
@@ -146,7 +146,7 @@ export default function Slide01Hero({ isActive, onNext }: SlideProps) {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
           onClick={onNext}
-          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 text-white/40 hover:text-gold transition-colors animate-bounce-slow"
+          className="absolute bottom-28 sm:bottom-24 left-1/2 -translate-x-1/2 z-10 text-white/40 hover:text-gold transition-colors animate-bounce-slow"
           aria-label="Next slide"
         >
           <ChevronDown size={28} />

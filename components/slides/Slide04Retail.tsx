@@ -31,7 +31,7 @@ const cards = [
 export default function Slide04Retail({ isActive }: SlideProps) {
   return (
     <div
-      className="relative w-full h-full flex flex-col items-center justify-center px-8 py-20 overflow-hidden"
+      className="relative w-full h-full flex flex-col items-center justify-start md:justify-center px-4 sm:px-6 md:px-8 pt-24 pb-28 md:py-20 overflow-y-auto overflow-x-hidden"
       style={{ background: '#0A0A0A' }}
     >
       {/* Ambient background video — very subtle */}
@@ -59,7 +59,7 @@ export default function Slide04Retail({ isActive }: SlideProps) {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
             <p className="label-caps text-gold mb-4">Retail Opportunity</p>
             <h2 className="heading-lg text-white">A Stage for the World&apos;s Best</h2>
@@ -67,7 +67,7 @@ export default function Slide04Retail({ isActive }: SlideProps) {
         )}
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+        <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-5 mb-8 md:mb-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-2 md:pb-0 -mx-1 px-1 md:mx-0 md:px-0">
           {cards.map((card, i) =>
             isActive ? (
               <motion.div
@@ -75,8 +75,8 @@ export default function Slide04Retail({ isActive }: SlideProps) {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 + i * 0.12 }}
-                className={`relative overflow-hidden rounded-2xl group cursor-pointer ${card.featured ? 'ring-1 ring-gold/40' : ''}`}
-                style={{ height: '340px' }}
+                className={`relative overflow-hidden rounded-2xl group cursor-pointer snap-center shrink-0 w-[78vw] sm:w-[330px] md:w-auto ${card.featured ? 'ring-1 ring-gold/40' : ''}`}
+                style={{ height: 'min(340px, 54vh)' }}
               >
                 {/* Static image */}
                 <Image
@@ -117,7 +117,7 @@ export default function Slide04Retail({ isActive }: SlideProps) {
                     {card.title}
                   </h3>
                   <p
-                    className="text-white/60 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="text-white/60 leading-relaxed opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
                     style={{ fontFamily: 'var(--font-inter)', fontSize: '0.82rem' }}
                   >
                     {card.desc}
