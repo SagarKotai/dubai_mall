@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { VIDEOS } from '@/lib/videos';
 
 interface SlideProps { isActive: boolean; }
 
@@ -73,7 +74,7 @@ export default function Slide07Attractions({ isActive }: SlideProps) {
       {/* Background video — attractions footage */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-20"
-        src="/dubai_attractions.mp4"
+        src={VIDEOS.attractions}
         autoPlay
         muted
         loop

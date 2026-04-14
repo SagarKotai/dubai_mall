@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { VIDEOS } from '@/lib/videos';
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -42,7 +43,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full z-0"
       >
         <video
-          src="/dubai_hero.mp4"
+          src={VIDEOS.hero}
           autoPlay
           muted
           loop

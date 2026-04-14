@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { VIDEOS } from '@/lib/videos';
 
 interface SlideProps { isActive: boolean; }
 
@@ -71,7 +72,7 @@ export default function Slide09Partnership({ isActive }: SlideProps) {
       {/* Ambient video */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-30"
-        src="/dubai_interior.mp4"
+        src={VIDEOS.interior}
         autoPlay
         muted
         loop

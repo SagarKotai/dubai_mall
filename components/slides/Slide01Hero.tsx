@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { VIDEOS } from '@/lib/videos';
 
 interface SlideProps {
   isActive: boolean;
@@ -26,7 +27,7 @@ export default function Slide01Hero({ isActive, onNext }: SlideProps) {
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/dubai_skyline.mp4"
+        src={VIDEOS.skyline}
         autoPlay
         muted
         loop

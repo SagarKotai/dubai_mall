@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { VIDEOS } from '@/lib/videos';
 
 interface SlideProps { isActive: boolean; }
 
@@ -51,7 +52,7 @@ export default function Slide08Events({ isActive }: SlideProps) {
       {/* Background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-20"
-        src="/dubai_events.mp4"
+        src={VIDEOS.events}
         autoPlay
         muted
         loop

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { VIDEOS } from '@/lib/videos';
 
 interface SlideProps { isActive: boolean; }
 
@@ -20,7 +21,7 @@ export default function Slide03Location({ isActive }: SlideProps) {
       {/* Ambient background video — Dubai aerial skyline */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-[0.20]"
-        src="/dubai_skyline.mp4"
+        src={VIDEOS.skyline}
         autoPlay
         muted
         loop

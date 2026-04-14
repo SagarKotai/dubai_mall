@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { VIDEOS } from '@/lib/videos';
 
 interface SlideProps { isActive: boolean; }
 
@@ -56,7 +57,7 @@ export default function Slide06Dining({ isActive }: SlideProps) {
       {/* Background video — new dining footage */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-25"
-        src="/dubai_dining.mp4"
+        src={VIDEOS.dining}
         autoPlay
         muted
         loop

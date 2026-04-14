@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { VIDEOS } from '@/lib/videos';
 
 interface SlideProps { isActive: boolean; }
 
@@ -36,7 +37,7 @@ export default function Slide04Retail({ isActive }: SlideProps) {
       {/* Ambient background video — very subtle */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
-        src="/dubai_interior.mp4"
+        src={VIDEOS.interior}
         autoPlay
         muted
         loop

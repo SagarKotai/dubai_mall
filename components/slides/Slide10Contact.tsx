@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { VIDEOS } from '@/lib/videos';
 
 interface SlideProps { isActive: boolean; }
 
@@ -20,7 +21,7 @@ export default function Slide10Contact({ isActive }: SlideProps) {
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/dubai_hero.mp4"
+        src={VIDEOS.hero}
         autoPlay
         muted
         loop
