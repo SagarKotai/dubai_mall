@@ -24,10 +24,10 @@ export const VIDEO_FALLBACKS = {
 export type VideoSlot = keyof typeof VIDEO_FALLBACKS;
 
 export const VIDEOS: Record<VideoSlot, string> = {
-  skyline: '/api/pexels/video/skyline',
-  hero: '/api/pexels/video/hero',
-  interior: '/api/pexels/video/interior',
-  attractions: '/api/pexels/video/attractions',
-  dining: '/api/pexels/video/dining',
-  events: '/api/pexels/video/events',
+  skyline: '/api/media/video/skyline',
+  hero: '/api/media/video/hero',
+  interior: '/api/media/video/interior',
+  attractions: '/api/media/video/attractions',
+  dining: '/api/media/video/dining',
+  events: '/api/media/video/events',
 };

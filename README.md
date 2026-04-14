@@ -18,14 +18,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Pexels Video Setup (Single Vercel Deploy)
 
-This project now resolves background videos through a built-in Next.js API route:
+This project now resolves background videos through built-in Next.js API routes:
 
-- `/api/pexels/video/skyline`
-- `/api/pexels/video/hero`
-- `/api/pexels/video/interior`
-- `/api/pexels/video/attractions`
-- `/api/pexels/video/dining`
-- `/api/pexels/video/events`
+- `/api/media/video/skyline`
+- `/api/media/video/hero`
+- `/api/media/video/interior`
+- `/api/media/video/attractions`
+- `/api/media/video/dining`
+- `/api/media/video/events`
+
+Compatibility routes are also available under `/api/pexels/video/:slot`.
 
 These routes run on Vercel Serverless Functions inside the same deployment. No separate backend service (Railway/Render/etc.) is required.
 
