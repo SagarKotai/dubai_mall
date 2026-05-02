@@ -24,7 +24,7 @@ export default function DiningSection({ isActive }: { isActive: boolean }) {
         tint="rgba(30,15,0,0.15)"
       />
 
-      <div className="absolute inset-0 z-[10] flex flex-col justify-end md:left-[280px] px-10 pb-12 md:px-14 md:pb-14">
+      <div className="absolute inset-0 z-[10] flex flex-col justify-end md:left-[280px] px-6 pb-6 md:px-14 md:pb-14">
 
         {/* Story chapter */}
         <motion.div
@@ -67,7 +67,7 @@ export default function DiningSection({ isActive }: { isActive: boolean }) {
         </motion.div>
 
         {/* Feature blocks */}
-        <div className="flex gap-4 flex-col md:flex-row">
+        <div className="flex gap-3 md:gap-4 flex-col md:flex-row">
           {BLOCKS.map((b, i) => (
             <motion.div
               key={i}
@@ -75,12 +75,12 @@ export default function DiningSection({ isActive }: { isActive: boolean }) {
               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 25 }}
               transition={{ duration: 0.5, delay: 0.35 + i * 0.1 }}
               whileHover={{ background: 'rgba(232,168,76,0.06)', borderColor: 'rgba(232,168,76,0.3)' }}
-              className="flex-1 p-5 rounded-lg border border-white/[0.08] transition-all duration-300"
+              className="flex-1 p-4 md:p-5 rounded-lg border border-white/[0.08] transition-all duration-300"
               style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(10px)' }}
             >
-              <div className="text-2xl mb-3" style={{ color: '#E8A84C' }}>{b.icon}</div>
-              <div className="font-inter font-semibold text-white text-sm tracking-wider uppercase mb-2">{b.title}</div>
-              <div className="text-white/55 text-sm font-inter leading-relaxed">{b.desc}</div>
+              <div className="text-xl md:text-2xl mb-2 md:mb-3" style={{ color: '#E8A84C' }}>{b.icon}</div>
+              <div className="font-inter font-semibold text-white text-xs md:text-sm tracking-wider uppercase mb-1 md:mb-2">{b.title}</div>
+              <div className="text-white/55 text-xs md:text-sm font-inter leading-relaxed">{b.desc}</div>
             </motion.div>
           ))}
         </div>

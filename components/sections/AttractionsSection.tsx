@@ -25,7 +25,7 @@ export default function AttractionsSection({ isActive }: { isActive: boolean }) 
         tint="rgba(0,15,40,0.2)"
       />
 
-      <div className="absolute inset-0 z-[10] flex flex-col justify-center md:left-[280px] px-10 md:px-14 py-16">
+      <div className="absolute inset-0 z-[10] flex flex-col justify-center md:left-[280px] px-6 md:px-14 py-16">
 
         {/* Story chapter */}
         <motion.div
@@ -55,7 +55,7 @@ export default function AttractionsSection({ isActive }: { isActive: boolean }) 
         </motion.div>
 
         {/* 2×2 Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+        <div className="grid grid-cols-2 gap-3 md:gap-4 max-w-4xl">
           {ATTRACTIONS.map((a, i) => (
             <motion.div
               key={i}
@@ -63,14 +63,14 @@ export default function AttractionsSection({ isActive }: { isActive: boolean }) 
               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 30, scale: isActive ? 1 : 0.97 }}
               transition={{ duration: 0.5, delay: 0.3 + i * 0.13 }}
               whileHover={{ scale: 1.02, borderColor: 'rgba(201,168,76,0.4)', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}
-              className="p-6 rounded-lg border border-white/[0.09] transition-all duration-300 cursor-default"
+              className="p-4 md:p-6 rounded-lg border border-white/[0.09] transition-all duration-300 cursor-default"
               style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(12px)' }}
             >
-              <div className="font-playfair font-bold mb-3" style={{ fontSize: '2.5rem', color: 'rgba(201,168,76,0.3)', lineHeight: 1 }}>
+              <div className="font-playfair font-bold mb-2 md:mb-3" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'rgba(201,168,76,0.3)', lineHeight: 1 }}>
                 {a.num}
               </div>
-              <div className="font-inter font-semibold text-white text-sm tracking-wide mb-2 leading-snug">{a.title}</div>
-              <div className="font-inter text-white/50 text-xs leading-relaxed">{a.desc}</div>
+              <div className="font-inter font-semibold text-white text-[11px] md:text-sm tracking-wide mb-1 md:mb-2 leading-snug">{a.title}</div>
+              <div className="font-inter text-white/50 text-[10px] md:text-xs leading-relaxed hidden md:block">{a.desc}</div>
             </motion.div>
           ))}
         </div>

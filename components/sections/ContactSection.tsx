@@ -49,7 +49,7 @@ export default function ContactSection({ isActive }: { isActive: boolean }) {
       )}
 
       {/* Content */}
-      <div className="absolute inset-0 z-[10] flex flex-col items-center justify-center md:left-[280px] px-8 text-center">
+      <div className="absolute inset-0 z-[10] flex flex-col items-center justify-center md:left-[280px] px-6 md:px-8 text-center">
 
         {/* Story chapter label */}
         <motion.div

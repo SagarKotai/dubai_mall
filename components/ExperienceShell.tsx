@@ -100,8 +100,7 @@ export default function ExperienceShell() {
       <Sidebar sections={SECTIONS} active={active} onNavigate={goTo} />
       
       {/* Mobile Top Nav */}
-      <div className="md:hidden fixed top-0 left-0 right-0 z-[60] flex justify-between items-center px-6 py-5 pointer-events-auto">
-        <div className="font-playfair font-bold text-xl text-gold-gradient">DM</div>
+      <div className="md:hidden fixed top-0 left-0 right-0 z-[60] flex justify-end px-6 py-5 pointer-events-auto">
         <button 
           onClick={() => setIsMobileMenuOpen(true)}
           className="w-10 h-10 flex items-center justify-center rounded-full bg-dark/50 backdrop-blur-md border border-white/10"

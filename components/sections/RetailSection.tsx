@@ -53,7 +53,7 @@ export default function RetailSection({ isActive }: { isActive: boolean }) {
         <span className="label-caps text-gold">1,200+ Brands</span>
       </motion.div>
 
-      <div className="absolute inset-0 z-[10] flex flex-col justify-end md:left-[280px] px-10 pb-10 md:px-14 md:pb-12">
+      <div className="absolute inset-0 z-[10] flex flex-col justify-end md:left-[280px] px-6 pb-6 md:px-14 md:pb-12">
 
         {/* Story chapter */}
         <motion.div
@@ -84,7 +84,7 @@ export default function RetailSection({ isActive }: { isActive: boolean }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 30 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex gap-4"
+          className="flex flex-col md:flex-row gap-3 md:gap-4 w-full max-w-6xl"
         >
           {CARDS.map((card, i) => (
             <HoverRevealCard key={i} {...card} />

@@ -38,7 +38,7 @@ export default function EventsSection({ isActive, onContact }: { isActive: boole
         style={{ background: 'radial-gradient(ellipse 50% 60% at 25% 40%, rgba(201,168,76,0.06) 0%, transparent 70%)' }}
       />
 
-      <div className="absolute inset-0 z-[10] flex flex-col justify-center md:left-[280px] px-10 md:px-14">
+      <div className="absolute inset-0 z-[10] flex flex-col justify-center md:left-[280px] px-6 md:px-14">
 
         {/* Story chapter */}
         <motion.div
@@ -75,14 +75,14 @@ export default function EventsSection({ isActive, onContact }: { isActive: boole
         </motion.div>
 
         {/* 3 columns */}
-        <div className="flex gap-0 mb-12">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-0 mb-8 md:mb-12">
           {COLUMNS.map((col, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 20 }}
               transition={{ duration: 0.5, delay: 0.4 + i * 0.12 }}
-              className="flex-1 pr-8 border-r border-white/[0.07] last:border-0 last:pr-0"
+              className="flex-1 pb-4 md:pb-0 md:pr-8 border-b md:border-b-0 md:border-r border-white/[0.07] last:border-0 last:pr-0"
             >
               <div className="label-caps text-gold mb-4">{col.title}</div>
               <ul className="space-y-2">

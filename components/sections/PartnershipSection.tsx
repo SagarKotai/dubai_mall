@@ -39,7 +39,7 @@ export default function PartnershipSection({ isActive, onContact }: { isActive: 
         topFade="linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, transparent 30%)"
       />
 
-      <div className="absolute inset-0 z-[10] flex flex-col items-center justify-center md:left-[280px] px-8 py-16">
+      <div className="absolute inset-0 z-[10] flex flex-col items-center justify-center md:left-[280px] px-6 py-12 md:py-16 overflow-y-auto">
 
         {/* Story chapter */}
         <motion.div
@@ -70,7 +70,7 @@ export default function PartnershipSection({ isActive, onContact }: { isActive: 
         </motion.div>
 
         {/* Tier cards */}
-        <div className="flex gap-5 items-center w-full max-w-4xl">
+        <div className="flex flex-col md:flex-row gap-5 items-stretch w-full max-w-4xl mt-4">
           {TIERS.map((tier, i) => (
             <motion.div
               key={tier.id}
@@ -78,7 +78,7 @@ export default function PartnershipSection({ isActive, onContact }: { isActive: 
               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 40 }}
               transition={{ duration: 0.6, delay: 0.25 + i * 0.15 }}
               whileHover={{ borderColor: 'rgba(201,168,76,0.5)', boxShadow: '0 0 50px rgba(201,168,76,0.12)' }}
-              className={`flex-1 p-7 rounded-xl border transition-all duration-400 ${tier.featured ? 'border-gold/30 scale-105 -mt-6' : 'border-white/10'}`}
+              className={`flex-1 p-5 md:p-7 rounded-xl border transition-all duration-400 ${tier.featured ? 'border-gold/30 md:scale-105 md:-mt-6' : 'border-white/10'}`}
               style={{
                 background: tier.featured ? 'rgba(201,168,76,0.06)' : 'rgba(255,255,255,0.04)',
                 backdropFilter: 'blur(16px)',
