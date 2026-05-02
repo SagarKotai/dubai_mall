@@ -38,7 +38,7 @@ export default function EventsSection({ isActive, onContact }: { isActive: boole
         style={{ background: 'radial-gradient(ellipse 50% 60% at 25% 40%, rgba(201,168,76,0.06) 0%, transparent 70%)' }}
       />
 
-      <div className="absolute inset-0 z-[10] flex flex-col justify-center md:left-[280px] px-6 md:px-14">
+      <div data-no-swipe className="absolute inset-0 z-[10] flex flex-col justify-start md:justify-center md:left-[280px] px-6 md:px-14 py-20 md:py-0 overflow-y-auto md:overflow-hidden">
 
         {/* Story chapter */}
         <motion.div

@@ -57,6 +57,10 @@ export default function ExperienceShell() {
 
   useEffect(() => {
     const onStart = (e: TouchEvent) => {
+      if ((e.target as HTMLElement).closest('[data-no-swipe]')) {
+        touchStart.current = null;
+        return;
+      }
       touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
     };
     const onEnd = (e: TouchEvent) => {

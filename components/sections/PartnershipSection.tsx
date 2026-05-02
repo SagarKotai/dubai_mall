@@ -39,7 +39,7 @@ export default function PartnershipSection({ isActive, onContact }: { isActive: 
         topFade="linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, transparent 30%)"
       />
 
-      <div className="absolute inset-0 z-[10] flex flex-col items-center justify-center md:left-[280px] px-6 py-12 md:py-16 overflow-y-auto">
+      <div data-no-swipe className="absolute inset-0 z-[10] flex flex-col items-center justify-start md:justify-center md:left-[280px] px-6 py-20 md:py-16 overflow-y-auto md:overflow-hidden">
 
         {/* Story chapter */}
         <motion.div
