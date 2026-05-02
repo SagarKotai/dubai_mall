@@ -1,31 +1,23 @@
 'use client';
 
-import { ReactNode } from 'react';
-
 interface GlassCardProps {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
   gold?: boolean;
   hover?: boolean;
-  onClick?: () => void;
 }
 
-export default function GlassCard({
-  children,
-  className = '',
-  gold = false,
-  hover = true,
-  onClick,
-}: GlassCardProps) {
-  const base = gold ? 'glass-gold' : 'glass';
-  const hoverClass = hover ? 'glass-hover cursor-pointer' : '';
-
+export default function GlassCard({ children, className = '', gold = false, hover = false }: GlassCardProps) {
   return (
     <div
-      className={`${base} ${hoverClass} ${className}`}
-      onClick={onClick}
-      role={onClick ? 'button' : undefined}
-      tabIndex={onClick ? 0 : undefined}
+      className={`
+        rounded-xl
+        ${gold
+          ? 'bg-gold/5 backdrop-blur-md border border-gold/20'
+          : 'bg-white/5 backdrop-blur-md border border-white/10'}
+        ${hover ? 'transition-all duration-300 hover:border-gold/50 hover:shadow-[0_0_40px_rgba(201,168,76,0.12)]' : ''}
+        ${className}
+      `}
     >
       {children}
     </div>

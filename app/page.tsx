@@ -1,5 +1,5 @@
-import DeckContainer from '@/components/DeckContainer';
+import ExperienceShell from '@/components/ExperienceShell';
 
 export default function Home() {
-  return <DeckContainer />;
+  return <ExperienceShell />;
 }

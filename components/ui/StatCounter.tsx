@@ -2,8 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+function easeOutExpo(t: number): number {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
 interface StatCounterProps {
-  end: number;
+  value: number;
   suffix?: string;
   prefix?: string;
   duration?: number;
@@ -12,52 +16,37 @@ interface StatCounterProps {
 }
 
 export default function StatCounter({
-  end,
-  suffix = '',
-  prefix = '',
-  duration = 2000,
-  isActive,
-  className = '',
+  value, suffix = '', prefix = '', duration = 2000, isActive, className = '',
 }: StatCounterProps) {
   const [count, setCount] = useState(0);
-  const started = useRef(false);
+  const raf = useRef<number | null>(null);
+  const t0 = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!isActive || started.current) return;
-    started.current = true;
+    if (!isActive) return;
+    // Reset and start fresh
+    t0.current = null;
+    setCount(0);
 
-    const startTime = performance.now();
-    const startValue = 0;
-
-    const step = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const currentCount = Math.round(startValue + (end - startValue) * eased);
-      setCount(currentCount);
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
+    const tick = (now: number) => {
+      if (!t0.current) t0.current = now;
+      const p = Math.min((now - t0.current) / duration, 1);
+      setCount(Math.round(easeOutExpo(p) * value));
+      if (p < 1) raf.current = requestAnimationFrame(tick);
     };
-
-    requestAnimationFrame(step);
-  }, [isActive, end, duration]);
-
-  // Reset when slide becomes inactive
-  useEffect(() => {
-    if (!isActive) {
-      started.current = false;
-      setCount(0);
-    }
-  }, [isActive]);
+    // Small delay so transition renders first
+    const timer = setTimeout(() => {
+      raf.current = requestAnimationFrame(tick);
+    }, 200);
+    return () => {
+      clearTimeout(timer);
+      if (raf.current) cancelAnimationFrame(raf.current);
+    };
+  }, [isActive, value, duration]);
 
   return (
     <span className={className}>
-      {prefix}
-      {count.toLocaleString()}
-      {suffix}
+      {prefix}{count.toLocaleString()}{suffix}
     </span>
   );
 }
