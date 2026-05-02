@@ -101,7 +101,7 @@ export default function HeroSection({ onNext }: { isActive: boolean; onNext?: ()
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.85 }}
-          className="text-white/55 font-inter font-light text-base md:text-lg mb-10 tracking-wide max-w-lg"
+          className="text-white/55 font-inter font-light text-base md:text-lg mb-10 tracking-wide max-w-sm md:max-w-lg"
         >
           105 million visitors. 1,200 brands. One address.
         </motion.p>
@@ -112,7 +112,7 @@ export default function HeroSection({ onNext }: { isActive: boolean; onNext?: ()
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.1 }}
-            className="flex gap-8 md:gap-14 flex-1"
+            className="grid grid-cols-2 md:flex gap-x-6 gap-y-8 md:gap-14 flex-1 w-full"
           >
             {HERO_STATS.map((s, i) => (
               <div key={i} className="flex flex-col gap-1.5">
@@ -132,7 +132,7 @@ export default function HeroSection({ onNext }: { isActive: boolean; onNext?: ()
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 1.3 }}
-            className="md:ml-auto"
+            className="mt-6 md:mt-0 md:ml-auto w-full md:w-auto flex justify-center"
           >
             <MagneticButton id="hero-explore-btn" onClick={onNext} variant="outline" className="px-10 py-4 text-[11px]">
               Begin the Story ↓

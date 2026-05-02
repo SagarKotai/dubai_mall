@@ -63,7 +63,7 @@ export default function CinematicBg({
           fill
           className="object-cover"
           style={{ filter: `brightness(${brightness}) contrast(1.05) saturate(1.1)` }}
-          sizes="110vw"
+          sizes="(max-width: 768px) 300vw, 110vw"
           priority={priority}
         />
       </motion.div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 
 interface Particle {
   id: number; x: number; size: number; duration: number; delay: number; opacity: number;
@@ -17,6 +17,13 @@ export default function ParticleField() {
       delay: Math.random() * 6,
       opacity: 0.25 + Math.random() * 0.35,
     })), []);
+
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">

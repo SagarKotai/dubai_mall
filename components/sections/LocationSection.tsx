@@ -54,7 +54,7 @@ export default function LocationSection({ isActive }: { isActive: boolean }) {
       </div>
 
       {/* Concentric rings */}
-      <div className="absolute inset-0 md:left-[280px] pt-32 md:pl-[320px] flex items-center justify-center z-[4] pointer-events-none">
+      <div className="absolute inset-0 md:left-[280px] pt-[24rem] md:pt-32 md:pl-[320px] flex items-center justify-center z-[4] pointer-events-none">
         {[80, 130, 180, 240].map((size, i) => (
           <div
             key={i}
@@ -87,7 +87,7 @@ export default function LocationSection({ isActive }: { isActive: boolean }) {
       </div>
 
       {/* Radiating stat labels */}
-      <div className="absolute inset-0 md:left-[280px] pt-32 md:pl-[320px] flex items-center justify-center z-[5] pointer-events-none">
+      <div className="absolute inset-0 md:left-[280px] pt-[24rem] md:pt-32 md:pl-[320px] flex items-center justify-center z-[5] pointer-events-none">
         {STATS.map((s, i) => {
           const { x, y } = toXY(s.angle, s.dist);
           const lineLen = s.dist - 48;

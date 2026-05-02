@@ -45,7 +45,7 @@ html, body {
 .heading-hero {
   font-family: var(--font-playfair), Georgia, serif;
   font-weight: 900;
-  font-size: clamp(4rem, 8vw, 9rem);
+  font-size: clamp(3rem, 12vw, 9rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
 }
@@ -187,3 +187,13 @@ html, body {
   object-fit: cover;
   pointer-events: none;
 }
+
+/* ══════════════════════════════════════════
+   CUSTOM CURSOR HIDING
+══════════════════════════════════════════ */
+@media (pointer: fine) {
+  body, a, button, input, textarea, select, [role="button"], .magnetic-button {
+    cursor: none !important;
+  }
+}
+

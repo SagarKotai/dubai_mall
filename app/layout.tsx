@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, Inter } from 'next/font/google';
+import CustomCursor from '@/components/ui/CustomCursor';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${playfair.variable} ${inter.variable} bg-dark text-white antialiased`}>
+        <CustomCursor />
         {children}
       </body>
     </html>
