@@ -2,7 +2,6 @@
 
 > **"I need to be here."** — the reaction every prospective tenant, sponsor, or event producer should have within 10 seconds of opening this.
 
-Live at `http://localhost:3000` · `npm install && npm run dev`
 
 ---
 
