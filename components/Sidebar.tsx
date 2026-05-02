@@ -21,22 +21,35 @@ function NavList({ sections, active, onNavigate, onClose }: SidebarProps & { onC
           <motion.button
             key={s.id}
             onClick={() => { onNavigate(s.id); onClose?.(); }}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-md relative group mb-0.5 text-left"
-            whileHover={{ x: 4 }}
+            className="w-full flex items-center gap-3 py-2.5 rounded-md relative group mb-0.5 text-left"
+            style={{
+              paddingLeft: isActive ? '16px' : '12px',
+              paddingRight: '12px',
+              borderLeft: isActive ? '2px solid var(--gold)' : '2px solid transparent',
+              transition: 'border-color 0.25s ease, padding-left 0.25s ease',
+            }}
+            whileHover={{ x: isActive ? 0 : 4 }}
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
           >
-            {isActive && (
-              <motion.div
-                layoutId="sidebarIndicator"
-                className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full"
-                style={{ background: 'var(--gold)' }}
-                transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-              />
-            )}
-            <span className={`text-[10px] font-mono w-5 flex-shrink-0 transition-colors duration-300 ${isActive ? 'text-gold' : 'text-white/20 group-hover:text-white/40'}`}>
+            <span
+              className="text-[10px] font-mono w-5 flex-shrink-0"
+              style={{
+                color: isActive ? 'var(--gold)' : 'rgba(255,255,255,0.35)',
+                transition: 'color 0.2s ease',
+              }}
+            >
               {String(i).padStart(2, '0')}
             </span>
-            <span className={`text-[13px] font-inter transition-colors duration-300 leading-none ${isActive ? 'text-gold font-medium' : 'text-white/40 group-hover:text-white/70'}`}>
+            <span
+              className="text-[13px] font-inter leading-none"
+              style={{
+                color: isActive ? 'var(--gold)' : 'rgba(255,255,255,0.55)',
+                fontWeight: isActive ? 600 : 400,
+                transition: 'color 0.2s ease, font-weight 0.2s ease',
+              }}
+              onMouseEnter={(e) => { if (!isActive) (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.85)'; }}
+              onMouseLeave={(e) => { if (!isActive) (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.55)'; }}
+            >
               {s.name}
             </span>
           </motion.button>
@@ -76,16 +89,22 @@ export default function Sidebar({ sections, active, onNavigate }: SidebarProps) 
 
   return (
     <>
-      {/* Desktop sidebar */}
+      {/* Desktop sidebar — frosted glass, blends with section color behind it */}
       <div
         className="fixed top-0 left-0 bottom-0 w-[280px] z-50 hidden md:flex flex-col"
         style={{
-          background: 'rgba(10,10,10,0.88)',
-          backdropFilter: 'blur(24px)',
-          WebkitBackdropFilter: 'blur(24px)',
-          borderRight: '1px solid rgba(255,255,255,0.05)',
+          /* Extremely low opacity lets the section image dictate the sidebar's color */
+          background: 'linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.35) 100%)',
+          backdropFilter: 'blur(48px)',
+          WebkitBackdropFilter: 'blur(48px)',
+          /* Warm gold-tinted right border instead of cold white */
+          borderRight: '1px solid rgba(201,168,76,0.15)',
+          /* Subtle inner shadow reinforces depth without looking like a separate box */
+          boxShadow: 'inset -1px 0 0 rgba(201,168,76,0.06), 4px 0 40px rgba(0,0,0,0.35)',
         }}
       >
+        {/* Gold shimmer line along the top — echoes the progress bar */}
+        <div style={{ height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,168,76,0.35), transparent)' }} />
         {sidebarContent}
       </div>
 
@@ -116,12 +135,19 @@ export default function Sidebar({ sections, active, onNavigate }: SidebarProps) 
             />
             <motion.div
               className="fixed top-0 left-0 bottom-0 w-[280px] z-[58] md:hidden flex flex-col"
-              style={{ background: 'rgba(10,10,10,0.97)', backdropFilter: 'blur(24px)' }}
+              style={{
+                background: 'linear-gradient(to bottom, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.45) 100%)',
+                backdropFilter: 'blur(48px)',
+                WebkitBackdropFilter: 'blur(48px)',
+                borderRight: '1px solid rgba(201,168,76,0.15)',
+                boxShadow: '4px 0 40px rgba(0,0,0,0.5)',
+              }}
               initial={{ x: -280 }}
               animate={{ x: 0 }}
               exit={{ x: -280 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
+              <div style={{ height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,168,76,0.35), transparent)' }} />
               {sidebarContent}
             </motion.div>
           </>

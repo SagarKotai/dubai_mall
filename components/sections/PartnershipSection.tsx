@@ -1,79 +1,72 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import CinematicBg from '../ui/CinematicBg';
 import MagneticButton from '../ui/MagneticButton';
 
 const TIERS = [
   {
-    id: 'retail',
-    label: 'Retail Partner',
-    icon: '◈',
+    id: 'retail', label: 'Retail Partner', icon: '◈', featured: false,
     desc: 'Premium retail space within one of the world\'s most visited destinations.',
-    benefits: [
-      '105M+ annual captive audience',
-      'Flagship-level positioning options',
-      'Dedicated brand support team',
-    ],
+    benefits: ['105M+ annual captive audience', 'Flagship-level positioning', 'Dedicated brand support team'],
     cta: 'Inquire About Leasing',
-    featured: false,
   },
   {
-    id: 'sponsor',
-    label: 'Brand Sponsor',
-    icon: '✦',
+    id: 'sponsor', label: 'Brand Sponsor', icon: '✦', featured: true,
     desc: 'Position your brand at the center of Dubai\'s cultural and retail moment.',
-    benefits: [
-      'Premium naming rights & placements',
-      'Exclusive event co-branding',
-      'Digital & physical media package',
-    ],
+    benefits: ['Premium naming rights & placements', 'Exclusive event co-branding', 'Digital & physical media package'],
     cta: 'Explore Sponsorship',
-    featured: true,
   },
   {
-    id: 'events',
-    label: 'Event Producer',
-    icon: '▲',
+    id: 'events', label: 'Event Producer', icon: '▲', featured: false,
     desc: 'The world\'s most iconic venue for global events, product launches and experiences.',
-    benefits: [
-      '500+ events hosted annually',
-      'Full production support',
-      'Multi-venue configuration',
-    ],
+    benefits: ['500+ events hosted annually', 'Full production support', 'Multi-venue configuration'],
     cta: 'Book a Venue',
-    featured: false,
   },
 ];
 
 export default function PartnershipSection({ isActive, onContact }: { isActive: boolean; onContact?: () => void }) {
   return (
     <div className="relative w-full h-full overflow-hidden bg-dark">
-      {/* Background */}
-      <Image
+
+      <CinematicBg
         src="/images/partnerships.png"
         alt="Dubai Mall partnerships"
-        fill
-        className="object-cover"
-        sizes="100vw"
-        priority
+        kenBurns="pan-left"
+        brightness={1.1}
+        base="rgba(0,0,0,0.5)"
+        bottomFade="linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.88) 100%)"
+        topFade="linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, transparent 30%)"
       />
-      <div className="absolute inset-0 bg-black/75 z-[1]" />
-      <div className="absolute inset-0 z-[2]" style={{ background: 'linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.85))' }} />
 
-      <div className="absolute inset-0 z-[10] flex flex-col items-center justify-center px-8 py-16">
+      <div className="absolute inset-0 z-[10] flex flex-col items-center justify-center md:left-[280px] px-8 py-16">
+
+        {/* Story chapter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 20 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex items-center justify-center gap-3 mb-8"
+        >
+          <div className="w-8 h-px bg-gold/60" />
+          <span className="label-caps text-gold/80 tracking-[0.4em]">Partnership Opportunities</span>
+          <div className="w-8 h-px bg-gold/60" />
+        </motion.div>
+
         {/* Headline */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 25 }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-14"
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-center mb-12"
         >
-          <div className="label-caps text-gold mb-4">Partnership Opportunities</div>
           <h2 className="heading-section text-white">
             Partner With<br />
-            <span className="text-gold-gradient">The Best.</span>
+            <span className="text-gold-gradient italic">The Best.</span>
           </h2>
+          <p className="text-white/50 font-inter font-light text-base md:text-lg mt-4 max-w-lg mx-auto">
+            Three ways to write your brand into the Dubai Mall story.
+          </p>
         </motion.div>
 
         {/* Tier cards */}
@@ -83,20 +76,11 @@ export default function PartnershipSection({ isActive, onContact }: { isActive: 
               key={tier.id}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 40 }}
-              transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-              whileHover={{
-                borderColor: 'rgba(201,168,76,0.5)',
-                boxShadow: '0 0 50px rgba(201,168,76,0.12)',
-              }}
-              className={`flex-1 p-7 rounded-xl border transition-all duration-400 ${
-                tier.featured
-                  ? 'border-gold/30 scale-105 -mt-6'
-                  : 'border-white/10'
-              }`}
+              transition={{ duration: 0.6, delay: 0.25 + i * 0.15 }}
+              whileHover={{ borderColor: 'rgba(201,168,76,0.5)', boxShadow: '0 0 50px rgba(201,168,76,0.12)' }}
+              className={`flex-1 p-7 rounded-xl border transition-all duration-400 ${tier.featured ? 'border-gold/30 scale-105 -mt-6' : 'border-white/10'}`}
               style={{
-                background: tier.featured
-                  ? 'rgba(201,168,76,0.06)'
-                  : 'rgba(255,255,255,0.04)',
+                background: tier.featured ? 'rgba(201,168,76,0.06)' : 'rgba(255,255,255,0.04)',
                 backdropFilter: 'blur(16px)',
               }}
             >
@@ -105,7 +89,7 @@ export default function PartnershipSection({ isActive, onContact }: { isActive: 
               )}
               <div className="text-2xl mb-4" style={{ color: 'var(--gold)' }}>{tier.icon}</div>
               <div className="font-inter font-bold text-white tracking-widest uppercase text-sm mb-3">{tier.label}</div>
-              <p className="text-white/50 text-sm font-inter leading-relaxed mb-6">{tier.desc}</p>
+              <p className="text-white/55 text-sm font-inter leading-relaxed mb-6">{tier.desc}</p>
               <ul className="space-y-2 mb-8">
                 {tier.benefits.map((b, j) => (
                   <li key={j} className="flex items-start gap-2 text-white/60 font-inter text-xs">

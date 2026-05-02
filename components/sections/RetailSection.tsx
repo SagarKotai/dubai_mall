@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import HoverRevealCard from '../ui/HoverRevealCard';
+import CinematicBg from '../ui/CinematicBg';
 
 const CARDS = [
   {
@@ -31,18 +31,16 @@ const CARDS = [
 export default function RetailSection({ isActive }: { isActive: boolean }) {
   return (
     <div className="relative w-full h-full overflow-hidden bg-dark">
-      {/* Background image */}
-      <Image
+
+      <CinematicBg
         src="/images/retail.png"
         alt="Dubai Mall retail"
-        fill
-        className="object-cover"
-        sizes="100vw"
-        priority
+        kenBurns="pan-left"
+        brightness={1.15}
+        base="rgba(0,0,0,0.4)"
+        bottomFade="linear-gradient(to bottom, transparent 25%, rgba(10,10,10,0.96) 100%)"
+        leftFade="linear-gradient(to right, rgba(10,10,10,0.6) 0%, transparent 55%)"
       />
-      <div className="absolute inset-0 bg-black/60 z-[1]" />
-      <div className="absolute inset-0 z-[2]" style={{ background: 'linear-gradient(to top, #0A0A0A 0%, transparent 50%)' }} />
-      <div className="absolute inset-0 z-[2]" style={{ background: 'linear-gradient(to right, #0A0A0A 0%, transparent 50%)' }} />
 
       {/* Floating badge */}
       <motion.div
@@ -55,16 +53,26 @@ export default function RetailSection({ isActive }: { isActive: boolean }) {
         <span className="label-caps text-gold">1,200+ Brands</span>
       </motion.div>
 
-      {/* Content */}
-      <div className="absolute inset-0 z-[10] flex flex-col justify-end px-10 pb-10 md:px-14 md:pb-12">
+      <div className="absolute inset-0 z-[10] flex flex-col justify-end md:left-[280px] px-10 pb-10 md:px-14 md:pb-12">
+
+        {/* Story chapter */}
+        <motion.div
+          initial={{ opacity: 0, x: -15 }}
+          animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -15 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex items-center gap-3 mb-6"
+        >
+          <div className="w-8 h-px bg-gold/60" />
+          <span className="label-caps text-gold/80 tracking-[0.35em]">Retail Leasing</span>
+        </motion.div>
+
         {/* Headline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 30 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
           className="mb-8"
         >
-          <div className="label-caps text-gold mb-4">Retail Leasing</div>
           <h2 className="heading-section text-white">
             A Stage for the<br />
             <span className="text-gold-gradient">World's Best.</span>
@@ -75,7 +83,7 @@ export default function RetailSection({ isActive }: { isActive: boolean }) {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 30 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
           className="flex gap-4"
         >
           {CARDS.map((card, i) => (

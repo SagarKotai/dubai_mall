@@ -34,10 +34,10 @@ export default function StatCounter({
       setCount(Math.round(easeOutExpo(p) * value));
       if (p < 1) raf.current = requestAnimationFrame(tick);
     };
-    // Small delay so transition renders first
+    // Bug 5: 600ms delay ensures counter fires AFTER the 550ms AnimatePresence transition
     const timer = setTimeout(() => {
       raf.current = requestAnimationFrame(tick);
-    }, 200);
+    }, 600);
     return () => {
       clearTimeout(timer);
       if (raf.current) cancelAnimationFrame(raf.current);

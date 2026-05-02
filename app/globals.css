@@ -77,12 +77,10 @@ html, body {
 
 .content-area {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: var(--sidebar-width);
+  inset: 0; /* Full viewport — images extend behind sidebar */
 }
 
+/* On mobile no sidebar so no offset needed */
 @media (max-width: 767px) {
   .content-area { left: 0; }
 }
